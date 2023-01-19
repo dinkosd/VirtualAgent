@@ -184,6 +184,52 @@
           },
           "withNluUserInput": false,
           "skipIfFulfilled": false
+        },
+        "3946810f4daf4321bdfabeab23acb025": {
+          "id": "3946810f4daf4321bdfabeab23acb025",
+          "stepType": "Prompt",
+          "name": "Search Again",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Would you like to view another NeedIt Record?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "169d2cdbac5d495594e7c9c1cca207fa"
+        },
+        "d362e68f3fe94c19a14f62421c5b4f9a": {
+          "id": "d362e68f3fe94c19a14f62421c5b4f9a",
+          "stepType": "Decision",
+          "name": "Find more NeedIt records?"
         }
       },
       "edges": [
@@ -192,14 +238,6 @@
           "edgeType": "Edge",
           "source": "c6557eefb34543249bd396f47adc0cdb",
           "target": "7b38778a9f8d43b191492f70b50866d5",
-          "sourcePort": "",
-          "targetPort": ""
-        },
-        {
-          "id": "459977f620f74b30ab41ff65c0fd4c0e",
-          "edgeType": "Edge",
-          "source": "7b38778a9f8d43b191492f70b50866d5",
-          "target": "3d70cbfa151d4ec4861a22c6344fc892",
           "sourcePort": "",
           "targetPort": ""
         },
@@ -218,6 +256,48 @@
           "target": "c6557eefb34543249bd396f47adc0cdb",
           "sourcePort": "",
           "targetPort": ""
+        },
+        {
+          "id": "459977f620f74b30ab41ff65c0fd4c0e",
+          "edgeType": "Edge",
+          "source": "7b38778a9f8d43b191492f70b50866d5",
+          "target": "3946810f4daf4321bdfabeab23acb025",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "85c6f793a64643b7a1e302b98bc448c9",
+          "edgeType": "Edge",
+          "source": "3946810f4daf4321bdfabeab23acb025",
+          "target": "d362e68f3fe94c19a14f62421c5b4f9a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a81b9d59183546cb985d379104b77d0f",
+          "edgeType": "Branch",
+          "source": "d362e68f3fe94c19a14f62421c5b4f9a",
+          "target": "3d70cbfa151d4ec4861a22c6344fc892",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.search_again=",
+            "mode": "query"
+          },
+          "label": "No"
+        },
+        {
+          "id": "947737b0d9ba4678aeb8389932f93c8b",
+          "edgeType": "Branch",
+          "source": "d362e68f3fe94c19a14f62421c5b4f9a",
+          "target": "c56963dda5394904981e9c167e2bf604",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.search_again=true",
+            "mode": "query"
+          },
+          "label": "Yes"
         }
       ]
     }
@@ -271,6 +351,14 @@
         }
       ],
       "category": "vaInputs"
+    },
+    "169d2cdbac5d495594e7c9c1cca207fa": {
+      "id": "169d2cdbac5d495594e7c9c1cca207fa",
+      "name": "search_again",
+      "label": "Search Again",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs"
     }
   }
 }</graph>
@@ -291,14 +379,14 @@
         <sys_created_on>2023-01-19 16:59:13</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>e72648f42f242110bfaed5ccf699b651</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>Update NeedIt Records</sys_name>
         <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_859504_needit_vi">2334cc382f242110bfaed5ccf699b6b1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt Virtual Agent Conversations">2334cc382f242110bfaed5ccf699b6b1</sys_scope>
         <sys_update_name>sys_cb_topic_e72648f42f242110bfaed5ccf699b651</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-01-19 19:46:54</sys_updated_on>
+        <sys_updated_on>2023-01-19 20:04:18</sys_updated_on>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>STANDARD</type>
         <variables/>
